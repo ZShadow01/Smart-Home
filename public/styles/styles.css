@@ -10,6 +10,7 @@ html, body {
     background: black;
     color: white;
     scroll-behavior: smooth;
+    cursor: none;
 }
 
 
@@ -180,7 +181,7 @@ html, body {
     background: black;
     overflow: hidden;
     text-align: center;
-    cursor: pointer;
+    /*cursor: pointer;*/
     
     transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
     -o-transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
