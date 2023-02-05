@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Smart Home</title>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="js/all.js" defer></script>
+
+        <link rel="stylesheet" href="styles/styles.css" type="text/css">
+    </head>
+    <body>
+        <div id="main">
+            <div class="date-time-container no-select">
+                <div id="secondsHand">
+                    <div class="dot"></div>
+                </div>
+                <div class="date-time-content">
+                    <p id="time"></p>
+                    <p id="date"></p>
+                </div>
+            </div>
+
+            <div class="panels">
+                <div id="closePanel"></div>
+                <div class="lights-panel panel-container rainbow-border">
+                    <p class="panel-caption no-select">Lights</p>
+                    <div class="light-button-container"></div>
+                </div>
+    
+                <div class="settings-panel panel-container rainbow-border">
+                    <p class="panel-caption no-select">Settings</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

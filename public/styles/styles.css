@@ -1,0 +1,260 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+html, body {
+    background: black;
+    color: white;
+    scroll-behavior: smooth;
+}
+
+
+@keyframes border-rainbow-transition {
+    0% {
+        border-color: white;
+    }
+    25% {
+        border-color: red;
+    }
+    50% {
+        border-color: blue;
+    }
+    75% {
+        border-color: green;
+    }
+    100% {
+        border-color: white;
+    }
+}
+
+
+@-webkit-keyframes border-rainbow-transition {
+    0% {
+        border-color: white;
+    }
+    25% {
+        border-color: red;
+    }
+    50% {
+        border-color: blue;
+    }
+    75% {
+        border-color: green;
+    }
+    100% {
+        border-color: white;
+    }
+}
+
+
+@-moz-keyframes border-rainbow-transition {
+    0% {
+        border-color: white;
+    }
+    25% {
+        border-color: red;
+    }
+    50% {
+        border-color: blue;
+    }
+    75% {
+        border-color: green;
+    }
+    100% {
+        border-color: white;
+    }
+}
+
+
+@-o-keyframes border-rainbow-transition {
+    0% {
+        border-color: white;
+    }
+    25% {
+        border-color: red;
+    }
+    50% {
+        border-color: blue;
+    }
+    75% {
+        border-color: green;
+    }
+    100% {
+        border-color: white;
+    }
+}
+
+
+.no-select {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+
+.rainbow-border {
+    border: 3px white solid;
+    animation: border-rainbow-transition 20s linear infinite;
+    -webkit-animation: border-rainbow-transition 20s linear infinite;
+    -o-animation: border-rainbow-transition 20s linear infinite;
+    -moz-animation: border-rainbow-transition 20s linear infinite;
+}
+
+
+#main {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+#main .date-time-container {
+    display: block;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    border: 2px rgb(255, 255, 255, 0.6) solid;
+    margin: auto;
+}
+
+
+#main .date-time-container #secondsHand {
+    display: block;
+    position: absolute;
+    left: calc(50% - 2.5px);
+    height: 100%;
+}
+
+
+#main .date-time-container #secondsHand .dot {
+    position: relative;
+    top: -4px;
+    width: 7px;
+    height: 7px;
+    border-radius: 100%;
+    background: white;
+}
+
+
+#main .date-time-container .date-time-content {
+    position: relative;
+    top: calc(50% - 50px);
+    text-align: center;
+}
+
+
+#main .date-time-container .date-time-content #time {
+    font-size: 300%;
+}
+
+
+#main .date-time-container .date-time-content #date {
+    font-size: 120%;
+}
+
+
+#main .panels #closePanel {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+#main .panels .panel-container {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 200px;
+    border-radius: 50px;
+    background: black;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    
+    transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
+    -o-transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
+    -moz-transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
+    -webkit-transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
+}
+
+
+#main .panels .panel-container.lights-panel {
+    top: 500px;
+    left: 100px;
+}
+
+
+#main .panels .panel-container.active {
+    top: 10vh;
+    left: 10vw;
+    width: 80vw;
+    height: 80vh;
+    z-index: 1;
+}
+
+
+#main .panels .panel-container:not(.active):hover {
+    width: 310px;
+    height: 210px;
+}
+
+
+#main .panels .panel-container:not(.active):hover .panel-caption {
+    line-height: 210px;
+}
+
+
+#main .panels .panel-container .panel-caption {
+    line-height: 200px;
+    font-size: 180%;
+
+    transition: line-height 0.4s;
+    -o-transition: line-height 0.4s;
+    -moz-transition: line-height 0.4s;
+    -webkit-transition: line-height 0.4s;
+}
+
+
+#main .panels .panel-container.lights-panel:not(.active) .light-button-container {
+    display: none;
+}
+
+
+#main .panels .panel-container.lights-panel.active .light-button-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 30px;
+    margin-top: 10%;
+}
+
+
+#main .panels .panel-container.lights-panel.active .light-button-container .light-button {
+    flex: 1 1 35%;
+    height: 100px;
+    border: none;
+    font-size: 100%;
+
+    transition: background 0.4s;
+    -o-transition: background 0.4s;
+    -moz-transition: background 0.4s;
+    -webkit-transition: background 0.4s;
+}
+
+
+#main .panels .panel-container.lights-panel.active .light-button-container .light-button:hover {
+    background: grey;
+}
