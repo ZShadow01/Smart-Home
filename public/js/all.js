@@ -7,7 +7,7 @@ function updateDatetime() {
     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
     const date = new Date();
-    timeElement.innerHTML = date.toLocaleTimeString().substring(0, 5);
+    timeElement.innerHTML = date.toLocaleTimeString('de').substring(0, 5);
     dateElement.innerHTML = `${weekdays[date.getDay()]} ${date.getDate()} ${months[date.getMonth()]}, ${date.getFullYear()}`;
 
     const degrees = (date.getSeconds() / 60) * 360;
