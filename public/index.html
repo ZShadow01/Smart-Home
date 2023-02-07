@@ -19,25 +19,31 @@
     </head>
     <body>
         <div id="main">
-            <div class="date-time-container no-select">
-                <div id="secondsHand">
-                    <div class="dot"></div>
-                </div>
-                <div class="date-time-content">
-                    <p id="time"></p>
-                    <p id="date"></p>
-                </div>
-            </div>
-
             <div class="panels">
                 <div id="closePanel"></div>
-                <div class="lights-panel panel-container rainbow-border">
-                    <p class="panel-caption no-select">Lights</p>
-                    <div class="light-button-container"></div>
+                <div class="panels-container top-panels-container">
+                    <div class="lights-panel panel">
+                        <div class="panel-container rainbow-border">
+                            <div class="panel-content">
+                                <img class="panel-icon no-select no-drag" draggable="false" src="img/lightbulb.svg" alt="lightbulb">
+                                <div class="light-button-container"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-    
-                <div class="settings-panel panel-container rainbow-border">
-                    <p class="panel-caption no-select">Settings</p>
+
+                <div class="panels-container center-panels-container">
+                    <div class="date-time-container no-select">
+                        <div id="secondsHand"></div>
+                        <div class="date-time-content">
+                            <p id="time"></p>
+                            <p id="date"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panels-container bottom-panels-container">
+
                 </div>
             </div>
         </div>

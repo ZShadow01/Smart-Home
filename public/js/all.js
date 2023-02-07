@@ -42,8 +42,8 @@ function initSocket(socket) {
 (function() {
     updateDatetime();
     setInterval(updateDatetime, 1000);
-
-    const panelContainers = document.getElementsByClassName('panel-container');
+    
+    const panelContainers = document.getElementsByClassName('panel');
     for (const panel of panelContainers) {
         panel.addEventListener('click', () => {
             panel.classList.add('active');
@@ -52,14 +52,11 @@ function initSocket(socket) {
     
     const closePanel = document.getElementById('closePanel');
     closePanel.addEventListener('click', () => {
-        const active = document.querySelector('.panel-container.active');
+        const active = document.querySelector('.panel.active');
         if (active) {
             active.classList.remove('active');
         }
     });
-
-
-
 
     const socket = io();
     socket.on('connect', () => {
