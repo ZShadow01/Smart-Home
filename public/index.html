@@ -13,37 +13,44 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
         <script src="/socket.io/socket.io.js"></script>
+        <script src="js/lights.js" defer></script>
+        <script src="js/remote.js" defer></script>
+        <script src="js/menus.js" defer></script>
         <script src="js/all.js" defer></script>
 
         <link rel="stylesheet" href="styles/styles.css" type="text/css">
     </head>
     <body>
         <div id="main">
-            <div class="panels">
-                <div id="closePanel"></div>
-                <div class="panels-container top-panels-container">
-                    <div class="lights-panel panel">
-                        <div class="panel-container rainbow-border">
-                            <div class="panel-content">
-                                <img class="panel-icon no-select no-drag" draggable="false" src="img/lightbulb.svg" alt="lightbulb">
-                                <div class="light-button-container"></div>
-                            </div>
-                        </div>
+            <div id="closePanel"></div>
+            <div class="menus">
+                <div id="mainMenu" class="menu active">
+                    <div class="menu-options">
+                        <button class="menu-option next-menu rainbow-border" value="lightsMenu">
+                            <img class="menu-option-content" src="img/lightbulb.svg" alt="lightbulb">
+                        </button>
+                        <button class="menu-option rainbow-border" value="">Hi</button>
+                        <button class="menu-option rainbow-border" value="">P</button>
                     </div>
                 </div>
 
-                <div class="panels-container center-panels-container">
-                    <div class="date-time-container no-select">
-                        <div id="secondsHand"></div>
-                        <div class="date-time-content">
-                            <p id="time"></p>
-                            <p id="date"></p>
-                        </div>
+                <div id="lightsMenu" class="menu">
+                    <div id="remote">
+                        <button class="remote-toggle">O</button>
+                    </div>
+                    <div class="menu-options light-buttons-container">
+                        <button class="menu-option prev-menu rainbow-border"></button>
                     </div>
                 </div>
-
-                <div class="panels-container bottom-panels-container">
-
+            </div>
+            
+            <div class="date-time-container initial">
+                <div class="date-time-clock no-select">
+                    <div id="secondsHand"></div>
+                    <div class="date-time-content">
+                        <div class="time-content"></div>
+                        <div class="date-content"></div>
+                    </div>
                 </div>
             </div>
         </div>

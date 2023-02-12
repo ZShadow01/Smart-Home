@@ -1,6 +1,6 @@
 function updateDatetime() {
-    const timeElement = document.getElementById('time');
-    const dateElement = document.getElementById('date');
+    const timeElement = document.getElementsByClassName('time-content').item(0);
+    const dateElement = document.getElementsByClassName('date-content').item(0);
     const secondsHandElement = document.getElementById('secondsHand');
 
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -19,47 +19,28 @@ function updateDatetime() {
 function initSocket(socket) {
     socket.on('lights', (lights) => {
         lights = JSON.parse(lights);
-
-        const lightButtonContainer = document.querySelector('.lights-panel .light-button-container');
-        lightButtonContainer.innerHTML = '';
-        lightButtonContainer.classList.add('hidden');
-        
-        for (const lightId of Object.keys(lights)) {
-            let button = document.createElement('button');
-            button.classList.add('light-button');
-
-            button.textContent = lights[lightId].name;
-            button.addEventListener('click', () => {
-                socket.emit('light-toggle', lightId);
-            });
-
-            lightButtonContainer.appendChild(button);
-        }
+        populateLights('#lightsMenu .light-buttons-container', lights);
     });
+}
+
+
+function initClosePanel(callback, once) {
+    document.getElementById('closePanel').addEventListener('click', callback, {once: once});
 }
 
 
 (function() {
     updateDatetime();
     setInterval(updateDatetime, 1000);
-    
-    const panelContainers = document.getElementsByClassName('panel');
-    for (const panel of panelContainers) {
-        panel.addEventListener('click', () => {
-            panel.classList.add('active');
-        });
-    }
-    
-    const closePanel = document.getElementById('closePanel');
-    closePanel.addEventListener('click', () => {
-        const active = document.querySelector('.panel.active');
-        if (active) {
-            active.classList.remove('active');
-        }
-    });
+
+    // Initialize panels
+    initMenus();
 
     const socket = io();
     socket.on('connect', () => {
         initSocket(socket);
     });
+    
+    // Initialize remote
+    initRemote('remote', socket);
 })();
