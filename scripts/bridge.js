@@ -26,7 +26,7 @@ class Bridge {
         let lights = res.data;
         let final = {};
         for (const light of Object.keys(lights)) {
-            final[light] = new Light(this, light, lights[light].name, lights[light].state);
+            final[light] = new Light(this, light, lights[light].name);
         }
         return final;
     }
@@ -61,11 +61,10 @@ class Light {
     #bridge;
     #id;
     #name;
-    constructor(bridge, id, name, state) {
+    constructor(bridge, id, name) {
         this.#bridge = bridge;
         this.#id = id;
         this.#name = name;
-        this.state = state;
     }
 
     getId() {
@@ -77,15 +76,17 @@ class Light {
     }
 
     async toggle() {
+        const res = await axios.get(`${this.#bridge.getBaseApiUrl()}lights/${this.#id}/`);
+        if (Array.isArray(res.data) && 'error' in res.data[0]) {
+            return;
+        }
         await axios.put(
             `${this.#bridge.getBaseApiUrl()}lights/${this.#id}/state`,
-            {on: !this.state.on}
+            {on: !res.data.state.on}
         );
-        this.state.on = !this.state.on;
     }
 
     async on() {
-        this.state.on = true;
         await axios.put(
             `${this.#bridge.getBaseApiUrl()}lights/${this.#id}/state`,
             {on: true}
@@ -93,7 +94,6 @@ class Light {
     }
 
     async off() {
-        this.state.on = false;
         await axios.put(
             `${this.#bridge.getBaseApiUrl()}lights/${this.#id}/state`,
             {on: false}
