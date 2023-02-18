@@ -13,27 +13,30 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
         <script src="/socket.io/socket.io.js"></script>
-        <script src="js/lights.js" defer></script>
-        <script src="js/remote.js" defer></script>
-        <script src="js/menus.js" defer></script>
-        <script src="js/all.js" defer></script>
 
         <link rel="stylesheet" href="styles/styles.css" type="text/css">
     </head>
     <body>
         <div id="main">
             <div id="closePanel"></div>
+
+            <!-- MENUS -->
             <div class="menus">
                 <div id="mainMenu" class="menu active">
                     <div class="menu-options">
                         <button class="menu-option next-menu rainbow-border" value="lightsMenu">
-                            <img class="menu-option-content" src="img/lightbulb.svg" alt="lightbulb">
+                            <img class="menu-option-content invert" src="img/lightbulb.png" alt="lightbulb">
                         </button>
-                        <button class="menu-option rainbow-border" value="">Hi</button>
-                        <button class="menu-option rainbow-border" value="">P</button>
+                        <button class="menu-option rainbow-border" value="musicMenu">
+                            <img class="menu-option-content invert" src="img/music.png" alt="music">
+                        </button>
+                        <button class="menu-option next-menu rainbow-border" value="timeMenu">
+                            <img class="menu-option-content invert" src="img/time.png" alt="time">
+                        </button>
                     </div>
                 </div>
 
+                <!-- LIGHTS MENU -->
                 <div id="lightsMenu" class="menu">
                     <div id="remote">
                         <button class="remote-toggle">O</button>
@@ -42,8 +45,23 @@
                         <button class="menu-option prev-menu rainbow-border"></button>
                     </div>
                 </div>
+                <script src="js/lights.js" type="text/javascript"></script>
+                <script src="js/remote.js" type="text/javascript"></script>
+
+                <!-- MUSIC MENU -->
+
+                <!-- TIME  MENU -->
+                <div id="timeMenu" class="menu">
+                    <div class="menu-options">
+                        <button class="menu-option prev-menu rainbow-border"></button>
+                        <button class="menu-option rainbow-border">Alarm</button>
+                        <button class="menu-option rainbow-border">Timer</button>
+                    </div>
+                </div>
             </div>
+            <script src="js/menus.js" type="text/javascript"></script>
             
+            <!-- DATETIME CLOCK -->
             <div class="date-time-container initial">
                 <div class="date-time-clock no-select">
                     <div id="secondsHand"></div>
@@ -54,5 +72,7 @@
                 </div>
             </div>
         </div>
+
+        <script src="js/all.js" type="text/javascript"></script>
     </body>
 </html>

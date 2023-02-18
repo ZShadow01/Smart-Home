@@ -1,5 +1,5 @@
 $clock-size: 330px;
-$menu-option-size: 100px;
+$menu-option-size: 97px;
 
 
 * {
@@ -177,6 +177,12 @@ html, body {
 }
 
 
+.invert {
+    -webkit-filter: invert(1);
+    filter: invert(1);
+}
+
+
 .rainbow-border {
     border: 3px white solid;
     box-shadow: 
@@ -229,8 +235,9 @@ html, body {
 
             .menu-option {
                 display: inline-flex;
-                justify-content: center;
                 align-items: center;
+                justify-content: center;
+                border: white 3px solid;
                 position: absolute;
                 width: $menu-option-size;
                 height: $menu-option-size;
@@ -243,6 +250,9 @@ html, body {
                 transition: all 0.4s;
 
                 .menu-option-content {
+                    position: relative;
+                    top: 1px;
+                    left: 1px;
                     margin: auto;
                     width: 60%;
                     height: 60%;
