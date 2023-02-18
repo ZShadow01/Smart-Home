@@ -14,90 +14,20 @@ html, body {
 
 @keyframes border-rainbow-transition {
   0% {
-    border-color: white;
-    box-shadow: inset 0 0 5px 2px rgba(255, 255, 255, 0.6), 0 0 5px 2px rgba(255, 255, 255, 0.6);
+    border-color: #c7d3f7;
+    box-shadow: inset 0 0 5px 2px #c7d3f7, 0 0 5px 2px #c7d3f7;
   }
-  25% {
-    border-color: red;
-    box-shadow: inset 0 0 5px 2px rgba(255, 0, 0, 0.6), 0 0 5px 2px rgba(255, 0, 0, 0.6);
+  33% {
+    border-color: #9673e2;
+    box-shadow: inset 0 0 5px 2px #9673e2, 0 0 5px 2px #9673e2;
   }
-  50% {
-    border-color: blue;
-    box-shadow: inset 0 0 5px 2px rgba(0, 0, 255, 0.6), 0 0 5px 2px rgba(0, 0, 255, 0.6);
-  }
-  75% {
-    border-color: green;
-    box-shadow: inset 0 0 5px 2px rgba(0, 255, 0, 0.6), 0 0 5px 2px rgba(0, 255, 0, 0.6);
+  66% {
+    border-color: #ffcefd;
+    box-shadow: inset 0 0 5px 2px #ffcefd, 0 0 5px 2px #ffcefd;
   }
   100% {
-    border-color: white;
-    box-shadow: inset 0 0 5px 2px rgba(255, 255, 255, 0.6), 0 0 5px 2px rgba(255, 255, 255, 0.6);
-  }
-}
-@-webkit-keyframes border-rainbow-transition {
-  0% {
-    border-color: white;
-    box-shadow: inset 0 0 5px 2px rgba(255, 255, 255, 0.6), 0 0 5px 2px rgba(255, 255, 255, 0.6);
-  }
-  25% {
-    border-color: red;
-    box-shadow: inset 0 0 5px 2px rgba(255, 0, 0, 0.6), 0 0 5px 2px rgba(255, 0, 0, 0.6);
-  }
-  50% {
-    border-color: blue;
-    box-shadow: inset 0 0 5px 2px rgba(0, 0, 255, 0.6), 0 0 5px 2px rgba(0, 0, 255, 0.6);
-  }
-  75% {
-    border-color: green;
-    box-shadow: inset 0 0 5px 2px rgba(0, 255, 0, 0.6), 0 0 5px 2px rgba(0, 255, 0, 0.6);
-  }
-  100% {
-    border-color: white;
-    box-shadow: inset 0 0 5px 2px rgba(255, 255, 255, 0.6), 0 0 5px 2px rgba(255, 255, 255, 0.6);
-  }
-}
-@-moz-keyframes border-rainbow-transition {
-  0% {
-    border-color: white;
-    box-shadow: inset 0 0 5px 2px rgba(255, 255, 255, 0.6), 0 0 5px 2px rgba(255, 255, 255, 0.6);
-  }
-  25% {
-    border-color: red;
-    box-shadow: inset 0 0 5px 2px rgba(255, 0, 0, 0.6), 0 0 5px 2px rgba(255, 0, 0, 0.6);
-  }
-  50% {
-    border-color: blue;
-    box-shadow: inset 0 0 5px 2px rgba(0, 0, 255, 0.6), 0 0 5px 2px rgba(0, 0, 255, 0.6);
-  }
-  75% {
-    border-color: green;
-    box-shadow: inset 0 0 5px 2px rgba(0, 255, 0, 0.6), 0 0 5px 2px rgba(0, 255, 0, 0.6);
-  }
-  100% {
-    border-color: white;
-    box-shadow: inset 0 0 5px 2px rgba(255, 255, 255, 0.6), 0 0 5px 2px rgba(255, 255, 255, 0.6);
-  }
-}
-@-o-keyframes border-rainbow-transition {
-  0% {
-    border-color: white;
-    box-shadow: inset 0 0 5px 2px rgba(255, 255, 255, 0.6), 0 0 5px 2px rgba(255, 255, 255, 0.6);
-  }
-  25% {
-    border-color: red;
-    box-shadow: inset 0 0 5px 2px rgba(255, 0, 0, 0.6), 0 0 5px 2px rgba(255, 0, 0, 0.6);
-  }
-  50% {
-    border-color: blue;
-    box-shadow: inset 0 0 5px 2px rgba(0, 0, 255, 0.6), 0 0 5px 2px rgba(0, 0, 255, 0.6);
-  }
-  75% {
-    border-color: green;
-    box-shadow: inset 0 0 5px 2px rgba(0, 255, 0, 0.6), 0 0 5px 2px rgba(0, 255, 0, 0.6);
-  }
-  100% {
-    border-color: white;
-    box-shadow: inset 0 0 5px 2px rgba(255, 255, 255, 0.6), 0 0 5px 2px rgba(255, 255, 255, 0.6);
+    border-color: #c7d3f7;
+    box-shadow: inset 0 0 5px 2px #c7d3f7, 0 0 5px 2px #c7d3f7;
   }
 }
 @keyframes fade-in {
@@ -125,12 +55,12 @@ html, body {
 }
 
 .rainbow-border {
-  border: 3px white solid;
-  box-shadow: inset 0 0 5px 2px rgba(255, 255, 255, 0.6), 0 0 5px 2px rgba(255, 255, 255, 0.6);
-  animation: border-rainbow-transition 20s linear infinite;
-  -webkit-animation: border-rainbow-transition 20s linear infinite;
-  -o-animation: border-rainbow-transition 20s linear infinite;
-  -moz-animation: border-rainbow-transition 20s linear infinite;
+  border: 3px #c7d3f7 solid;
+  box-shadow: inset 0 0 5px 2px #c7d3f7, 0 0 5px 2px #c7d3f7;
+  animation: border-rainbow-transition 10s linear infinite;
+  -webkit-animation: border-rainbow-transition 10s linear infinite;
+  -o-animation: border-rainbow-transition 10s linear infinite;
+  -moz-animation: border-rainbow-transition 10s linear infinite;
 }
 
 #main {
@@ -208,9 +138,48 @@ html, body {
   background: white;
   color: black;
 }
+.menus .menu#timerMenu .timer-container {
+  width: 330px;
+  height: 330px;
+  border-radius: 100%;
+  box-shadow: inset 0 0 5px 2px white, 0 0 5px 2px white;
+  border: solid 3px white;
+}
 .menus .menu.active {
   display: inline-block;
   animation: fade-in 2s ease;
+}
+
+#remote {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 330px;
+  height: 330px;
+}
+#remote button {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  color: white;
+  border-radius: 100%;
+  border: white 3px solid;
+  box-shadow: inset 0 0 5px 2px white, 0 0 5px 2px white;
+  transition: all 0.2s;
+}
+#remote button::before {
+  content: "O";
+  font-size: 26px;
+}
+#remote button:hover {
+  border: grey 3px solid;
+  box-shadow: inset 0 0 5px 2px grey, 0 0 5px 2px grey;
 }
 
 .date-time-container {
@@ -235,36 +204,7 @@ html, body {
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
 }
-
-#remote {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 250px;
-  height: 250px;
-}
-#remote button {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  background: transparent;
-  color: white;
-  border-radius: 100%;
-  border: white 3px solid;
-  box-shadow: inset 0 0 5px 2px white, 0 0 5px 2px white;
-  transition: all 0.2s;
-}
-#remote button:hover {
-  border: grey 3px solid;
-  box-shadow: inset 0 0 5px 2px grey, 0 0 5px 2px grey;
-}
-
-.date-time-clock {
+.date-time-container .date-time-clock {
   display: block;
   position: relative;
   width: 100%;
@@ -274,7 +214,7 @@ html, body {
   box-shadow: inset 0 0 5px 2px rgba(255, 255, 255, 0.6), 0 0 5px 2px rgba(255, 255, 255, 0.6);
   background: black;
 }
-.date-time-clock #secondsHand {
+.date-time-container .date-time-clock #secondsHand {
   display: block;
   position: absolute;
   bottom: 50%;
@@ -289,7 +229,7 @@ html, body {
   -moz-transition: all 0.5s;
   -webkit-transition: all 0.5s;
 }
-.date-time-clock .date-time-content {
+.date-time-container .date-time-clock .date-time-content {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
@@ -299,12 +239,12 @@ html, body {
   -o-transform: translateY(-50%);
   text-align: center;
 }
-.date-time-clock .date-time-content .time-content {
+.date-time-container .date-time-clock .date-time-content .time-content {
   display: inline-block;
   font-size: 400%;
   line-height: 100%;
 }
-.date-time-clock .date-time-content .date-content {
+.date-time-container .date-time-clock .date-time-content .date-content {
   display: inline-block;
   font-size: 120%;
 }

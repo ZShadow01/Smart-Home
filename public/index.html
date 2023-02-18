@@ -39,7 +39,7 @@
                 <!-- LIGHTS MENU -->
                 <div id="lightingMenu" class="menu">
                     <div id="remote">
-                        <button class="remote-toggle">O</button>
+                        <button class="remote-toggle"></button>
                     </div>
                     <div class="menu-options light-buttons-container">
                         <button class="menu-option prev-menu rainbow-border"></button>
@@ -52,13 +52,19 @@
                 <div id="timeMenu" class="menu">
                     <div class="menu-options">
                         <button class="menu-option prev-menu rainbow-border"></button>
-                        <button class="menu-option rainbow-border">Alarm</button>
-                        <button class="menu-option next-menu rainbow-border" value="timerMenu">Timer</button>
+                        <button class="menu-option rainbow-border">
+                            <img class="menu-option-content invert" src="img/alarm.png" alt="alarm">
+                        </button>
+                        <button class="menu-option next-menu rainbow-border" value="timerMenu">
+                            <img class="menu-option-content invert" src="img/timer.png" alt="timer">
+                        </button>
                     </div>
                 </div>
 
                 <!-- TIMER MENU -->
                 <div id="timerMenu" class="menu">
+                    <div class="timer-container">
+                    </div>
                     <div class="menu-options">
                         <button class="menu-option prev-menu rainbow-border"></button>
                     </div>
