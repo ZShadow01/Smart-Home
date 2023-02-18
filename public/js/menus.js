@@ -1,12 +1,41 @@
 const MENU_OPTIONS_RADIUS = 270;
 const menuList = ['mainMenu'];
 const MENUS = {
-    lightsMenu: {init: switchLightsMenu, destroy: resetLightsMenu}
+    lightsMenu: {
+        init: () => {
+            initClosePanel(resetLightButtonStates, false);
+            moveDateTimeClock();
+        },
+        destroy: () => {
+            resetLightsMenu();
+            resetDateTimeClock();
+        }
+    },
+    timeMenu: {
+        init: null,
+        destroy: null
+    }
 };
 
 
 function getCurrentMenuId() {
     return menuList[menuList.length - 1];
+}
+
+
+function showMenu(menuId) {
+    const menu = document.getElementById(menuId);
+    initMenuOptions(menu.getElementsByClassName('menu-option'));
+}
+
+
+function moveDateTimeClock() {
+    document.querySelector('.date-time-container').classList.remove('initial');
+}
+
+
+function resetDateTimeClock() {
+    document.querySelector('.date-time-container').classList.add('initial');
 }
 
 
@@ -40,10 +69,9 @@ function initMenu(menuOptions) {
             currentMenu.classList.remove('active');
             nextMenu.classList.add('active');
 
-            if (MENUS[currentMenu.id]) MENUS[currentMenu.id].destroy();
-            MENUS[nextMenuId].init();
-
-            document.querySelector('.date-time-container').classList.remove('initial');
+            if (MENUS[currentMenu.id] && MENUS[currentMenu.id].destroy) MENUS[currentMenu.id].destroy();
+            showMenu(nextMenuId);
+            if (MENUS[nextMenuId] && MENUS[nextMenuId].init) MENUS[nextMenuId].init();
         });
     }
 
@@ -60,11 +88,7 @@ function initMenu(menuOptions) {
             currentMenu.classList.remove('active');
             prevMenu.classList.add('active');
 
-            if (MENUS[currentMenu.id]) MENUS[currentMenu.id].destroy();
-            
-            if (menuList.length == 1) {
-                document.querySelector('.date-time-container').classList.add('initial');
-            }
+            if (MENUS[currentMenu.id] && MENUS[currentMenu.id].destroy) MENUS[currentMenu.id].destroy();
         });
     }
 }

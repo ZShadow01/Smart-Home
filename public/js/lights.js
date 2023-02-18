@@ -1,13 +1,6 @@
 let currentLightButton = null;
 
 
-function switchLightsMenu() {
-    const lightsMenu = document.getElementById('lightsMenu');
-    initMenuOptions(lightsMenu.getElementsByClassName('menu-option'));
-    initClosePanel(resetLightButtonStates, false);
-}
-
-
 function resetLightsMenu() {
     resetLightButtonStates();
     document.getElementById('closePanel').removeEventListener('click', resetLightButtonStates);
