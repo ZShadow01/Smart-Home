@@ -1,14 +1,21 @@
+const lightingMenuId = 'lightingMenu';
 let currentLightButton = null;
 
-
-function resetLightsMenu() {
-    resetLightButtonStates();
-    document.getElementById('closePanel').removeEventListener('click', resetLightButtonStates);
-}
+MENUS.lightingMenu = {
+    show: () => {
+        moveDateTimeClock();
+        initClosePanel(resetLightButtonStates, false);
+    },
+    hide: () => {
+        resetLightButtonStates();
+        closePanel.removeEventListener('click', resetLightButtonStates);
+        resetDateTimeClock();
+    }
+};
 
 
 function resetLightButtonStates() {
-    const lightButtonContainer = document.querySelector('#lightsMenu .light-buttons-container');
+    const lightButtonContainer = document.querySelector(`#${lightingMenuId} .light-buttons-container`);
     currentLightButton = null;
     const active = lightButtonContainer.getElementsByClassName('active');
     for (const i of active) {

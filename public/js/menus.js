@@ -1,21 +1,11 @@
 const MENU_OPTIONS_RADIUS = 270;
-const menuList = ['mainMenu'];
 const MENUS = {
-    lightsMenu: {
-        init: () => {
-            initClosePanel(resetLightButtonStates, false);
-            moveDateTimeClock();
-        },
-        destroy: () => {
-            resetLightsMenu();
-            resetDateTimeClock();
-        }
-    },
-    timeMenu: {
-        init: null,
-        destroy: null
+    mainMenu: {
+        show: null,
+        hide: null
     }
 };
+const menuList = ['mainMenu'];
 
 
 function getCurrentMenuId() {
@@ -23,9 +13,75 @@ function getCurrentMenuId() {
 }
 
 
+function initializeMenus() {
+    const prevMenuButtons = document.getElementsByClassName('prev-menu');
+    for (const btn of prevMenuButtons) {
+        btn.addEventListener('click', () => {
+            const currentMenuId = menuList.pop();
+            const prevMenuId = getCurrentMenuId();
+
+            const currentMenu = document.getElementById(currentMenuId);
+            const prevMenu = document.getElementById(prevMenuId);
+            
+            currentMenu.classList.remove('active');
+            prevMenu.classList.add('active');
+
+            hideMenu(currentMenuId);
+            showMenu(prevMenuId);
+        });
+    }
+
+    const nextMenuButtons = document.getElementsByClassName('next-menu');
+    for (const btn of nextMenuButtons) {
+        btn.addEventListener('click', () => {
+            const prevMenuId = getCurrentMenuId();
+            const nextMenuId = btn.value;
+    
+            const prevMenu = document.getElementById(prevMenuId);
+            const nextMenu = document.getElementById(nextMenuId);
+    
+            menuList.push(nextMenuId);
+    
+            prevMenu.classList.remove('active');
+            nextMenu.classList.add('active');
+    
+            hideMenu(prevMenuId);
+            showMenu(nextMenuId);
+        });
+    }
+}
+
+
 function showMenu(menuId) {
+    const menuObj = MENUS[menuId];
+    if (menuObj.show) {
+        MENUS[menuId].show();
+    }
+    initMenuOptions(menuId);
+}
+
+
+function hideMenu(menuId) {
+    const menuObj = MENUS[menuId];
+    if (menuObj.hide) {
+        MENUS[menuId].hide();
+    }
+}
+
+
+function initMenuOptions(menuId) {
     const menu = document.getElementById(menuId);
-    initMenuOptions(menu.getElementsByClassName('menu-option'));
+    const menuOptions = menu.getElementsByClassName('menu-option');
+
+    const interval = 360 / menuOptions.length;
+    for (let i = 0; i < menuOptions.length; i++) {
+        const deg = interval * i;
+        const x = Math.round(Math.sin(deg * (Math.PI / 180)) * MENU_OPTIONS_RADIUS);
+        const y = Math.round(Math.cos(deg * (Math.PI / 180)) * MENU_OPTIONS_RADIUS);
+        const option = menuOptions.item(i);
+
+        option.style.transform = `translate(calc(${x}px - 50%), calc(${-y}px - 50%))`;
+    }
 }
 
 
@@ -36,72 +92,4 @@ function moveDateTimeClock() {
 
 function resetDateTimeClock() {
     document.querySelector('.date-time-container').classList.add('initial');
-}
-
-
-function initMenus() {
-    // Initialize main menu
-    const mainMenu = document.getElementById('mainMenu');
-    let menuOptions = mainMenu.getElementsByClassName('menu-option');
-    if (!menuOptions) {
-        return;
-    }
-
-    initMenuOptions(menuOptions);
-
-    menuOptions = mainMenu.getElementsByClassName('next-menu');
-    initMenu(menuOptions);
-}
-
-
-function initMenu(menuOptions) {
-    for (let i = 0; i < menuOptions.length; i++) {
-        const menuOption = menuOptions.item(i);
-        menuOption.addEventListener('click', () => {
-            const currentMenu = document.getElementById(getCurrentMenuId());
-            const nextMenuId = menuOption.value;
-
-            if (!nextMenuId) return;
-
-            const nextMenu = document.getElementById(nextMenuId);
-            menuList.push(nextMenuId);
-
-            currentMenu.classList.remove('active');
-            nextMenu.classList.add('active');
-
-            if (MENUS[currentMenu.id] && MENUS[currentMenu.id].destroy) MENUS[currentMenu.id].destroy();
-            showMenu(nextMenuId);
-            if (MENUS[nextMenuId] && MENUS[nextMenuId].init) MENUS[nextMenuId].init();
-        });
-    }
-
-    const prevMenuButtons = document.getElementsByClassName('prev-menu');
-    for (const prevMenuButton of prevMenuButtons) {
-        prevMenuButton.addEventListener('click', () => {
-            if (menuList.length <= 1) return;
-
-            const currentMenu = document.getElementById(getCurrentMenuId());
-            const prevMenu = document.getElementById(menuList[menuList.length - 2]);
-
-            menuList.pop();
-
-            currentMenu.classList.remove('active');
-            prevMenu.classList.add('active');
-
-            if (MENUS[currentMenu.id] && MENUS[currentMenu.id].destroy) MENUS[currentMenu.id].destroy();
-        });
-    }
-}
-
-
-function initMenuOptions(options) {
-    const interval = 360 / options.length;
-    for (let i = 0; i < options.length; i++) {
-        const deg = interval * i;
-        const x = Math.round(Math.sin(deg * (Math.PI / 180)) * MENU_OPTIONS_RADIUS);
-        const y = Math.round(Math.cos(deg * (Math.PI / 180)) * MENU_OPTIONS_RADIUS);
-        const option = options.item(i);
-
-        option.style.transform = `translate(calc(${x}px - 50%), calc(${-y}px - 50%))`;
-    }
 }

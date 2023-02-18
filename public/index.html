@@ -24,7 +24,7 @@
             <div class="menus">
                 <div id="mainMenu" class="menu active">
                     <div class="menu-options">
-                        <button class="menu-option next-menu rainbow-border" value="lightsMenu">
+                        <button class="menu-option next-menu rainbow-border" value="lightingMenu">
                             <img class="menu-option-content invert" src="img/lightbulb.png" alt="lightbulb">
                         </button>
                         <button class="menu-option rainbow-border" value="musicMenu">
@@ -37,7 +37,7 @@
                 </div>
 
                 <!-- LIGHTS MENU -->
-                <div id="lightsMenu" class="menu">
+                <div id="lightingMenu" class="menu">
                     <div id="remote">
                         <button class="remote-toggle">O</button>
                     </div>
@@ -45,8 +45,6 @@
                         <button class="menu-option prev-menu rainbow-border"></button>
                     </div>
                 </div>
-                <script src="js/lights.js" type="text/javascript"></script>
-                <script src="js/remote.js" type="text/javascript"></script>
 
                 <!-- MUSIC MENU -->
 
@@ -55,11 +53,22 @@
                     <div class="menu-options">
                         <button class="menu-option prev-menu rainbow-border"></button>
                         <button class="menu-option rainbow-border">Alarm</button>
-                        <button class="menu-option rainbow-border">Timer</button>
+                        <button class="menu-option next-menu rainbow-border" value="lightingMenu">Timer</button>
+                    </div>
+                </div>
+
+                <!-- TIMER MENU -->
+                <div id="timerMenu" class="menu">
+                    <div class="menu-options">
+                        <button class="menu-option rainbow-border">Alarm</button>
+                        <button class="menu-option prev-menu rainbow-border">T</button>
                     </div>
                 </div>
             </div>
             <script src="js/menus.js" type="text/javascript"></script>
+            <script src="js/menus/lightingMenu.js" type="text/javascript"></script>
+            <script src="js/remote.js" type="text/javascript"></script>
+            <script src="js/menus/timeMenu.js" type="text/javascript"></script>
             
             <!-- DATETIME CLOCK -->
             <div class="date-time-container initial">

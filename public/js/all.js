@@ -1,3 +1,6 @@
+const closePanel = document.getElementById('closePanel');
+
+
 function updateDatetime() {
     const timeElement = document.getElementsByClassName('time-content').item(0);
     const dateElement = document.getElementsByClassName('date-content').item(0);
@@ -19,7 +22,7 @@ function updateDatetime() {
 function initSocket(socket) {
     socket.on('lights', (lights) => {
         lights = JSON.parse(lights);
-        const lightButtonsContainer = populateLights('#lightsMenu .light-buttons-container', lights);
+        const lightButtonsContainer = populateLights(`#${lightingMenuId} .light-buttons-container`, lights);
         const lightButtons = lightButtonsContainer.getElementsByClassName('light-button');
         for (const btn of lightButtons) {
             if (lights[btn.value].state.on) {
@@ -33,7 +36,7 @@ function initSocket(socket) {
 
 
 function initClosePanel(callback, once) {
-    document.getElementById('closePanel').addEventListener('click', callback, {once: once});
+    closePanel.addEventListener('click', callback, {once: once});
 }
 
 
@@ -42,7 +45,8 @@ function initClosePanel(callback, once) {
     setInterval(updateDatetime, 1000);
 
     // Initialize panels
-    initMenus();
+    initializeMenus();
+    showMenu(getCurrentMenuId());
 
     const socket = io();
     socket.on('connect', () => {

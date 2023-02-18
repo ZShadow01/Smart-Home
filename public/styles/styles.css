@@ -200,11 +200,11 @@ html, body {
   width: calc(97px + 10px);
   height: calc(97px + 10px);
 }
-.menus .menu#lightsMenu .menu-options > .menu-option.active {
+.menus .menu#lightingMenu .menu-options > .menu-option.active {
   width: 127px;
   height: 127px;
 }
-.menus .menu#lightsMenu .light-buttons-container > .light-button.on {
+.menus .menu#lightingMenu .light-buttons-container > .light-button.on {
   background: white;
   color: black;
 }
