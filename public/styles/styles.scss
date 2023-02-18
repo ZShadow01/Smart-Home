@@ -240,7 +240,7 @@ html, body {
                 color: white;
                 font-size: 16px;
 
-                transition: width 0.4s, height 0.4s;
+                transition: all 0.4s;
 
                 .menu-option-content {
                     margin: auto;
@@ -266,6 +266,11 @@ html, body {
             .menu-options > .menu-option.active {
                 width: calc($menu-option-size + 30px);
                 height: calc($menu-option-size + 30px);
+            }
+
+            .light-buttons-container > .light-button.on {
+                background: white;
+                color: black;
             }
         }
 

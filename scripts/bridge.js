@@ -75,14 +75,21 @@ class Light {
         return this.#name;
     }
 
-    async toggle() {
+    async getState() {
         const res = await axios.get(`${this.#bridge.getBaseApiUrl()}lights/${this.#id}/`);
         if (Array.isArray(res.data) && 'error' in res.data[0]) {
             return;
         }
+        return res.data.state;
+    }
+
+    async toggle() {
+        const state = await this.getState();
+        if (!state) return;
+
         await axios.put(
             `${this.#bridge.getBaseApiUrl()}lights/${this.#id}/state`,
-            {on: !res.data.state.on}
+            {on: !state.on}
         );
     }
 
@@ -100,10 +107,11 @@ class Light {
         );
     }
 
-    json() {
+    async json() {
         return {
             name: this.#name,
-            id: this.#id
+            id: this.#id,
+            state: await this.getState()
         }
     }
 };

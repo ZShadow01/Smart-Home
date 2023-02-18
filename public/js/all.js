@@ -19,7 +19,15 @@ function updateDatetime() {
 function initSocket(socket) {
     socket.on('lights', (lights) => {
         lights = JSON.parse(lights);
-        populateLights('#lightsMenu .light-buttons-container', lights);
+        const lightButtonsContainer = populateLights('#lightsMenu .light-buttons-container', lights);
+        const lightButtons = lightButtonsContainer.getElementsByClassName('light-button');
+        for (const btn of lightButtons) {
+            if (lights[btn.value].state.on) {
+                btn.classList.add('on');
+            } else {
+                btn.classList.remove('on');
+            }
+        }
     });
 }
 

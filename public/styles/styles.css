@@ -176,7 +176,7 @@ html, body {
   background: transparent;
   color: white;
   font-size: 16px;
-  transition: width 0.4s, height 0.4s;
+  transition: all 0.4s;
 }
 .menus .menu .menu-options .menu-option .menu-option-content {
   margin: auto;
@@ -194,6 +194,10 @@ html, body {
 .menus .menu#lightsMenu .menu-options > .menu-option.active {
   width: 130px;
   height: 130px;
+}
+.menus .menu#lightsMenu .light-buttons-container > .light-button.on {
+  background: white;
+  color: black;
 }
 .menus .menu.active {
   display: inline-block;

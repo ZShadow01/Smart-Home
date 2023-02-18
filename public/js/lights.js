@@ -26,9 +26,9 @@ function resetLightButtonStates() {
 
 function populateLights(selector, lights) {
     const lightButtonContainer = document.querySelector(selector);
-    const prevMenu = lightButtonContainer.querySelector('.prev-menu');
-    lightButtonContainer.innerHTML = '';
-    lightButtonContainer.appendChild(prevMenu);
+    if (lightButtonContainer.getElementsByClassName('light-button').length) {
+        return lightButtonContainer;
+    }
     
     for (const lightId of Object.keys(lights)) {
         let button = document.createElement('button');
@@ -49,4 +49,5 @@ function populateLights(selector, lights) {
 
         lightButtonContainer.appendChild(button);
     }
+    return lightButtonContainer;
 }
