@@ -2,6 +2,7 @@ const lightingMenuId = 'lightingMenu';
 let currentLightButton = null;
 
 MENUS.lightingMenu = {
+    clearCenter: true,
     show: () => {
         moveDateTimeClock();
         initClosePanel(resetLightButtonStates, false);

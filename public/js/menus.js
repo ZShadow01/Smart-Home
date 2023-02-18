@@ -14,6 +14,7 @@ function getCurrentMenuId() {
 
 
 function initializeMenus() {
+    // Initialize "go back" buttons
     const prevMenuButtons = document.getElementsByClassName('prev-menu');
     for (const btn of prevMenuButtons) {
         btn.addEventListener('click', () => {
@@ -31,6 +32,7 @@ function initializeMenus() {
         });
     }
 
+    // Initialize "next" buttons
     const nextMenuButtons = document.getElementsByClassName('next-menu');
     for (const btn of nextMenuButtons) {
         btn.addEventListener('click', () => {
@@ -57,6 +59,9 @@ function showMenu(menuId) {
     if (menuObj.show) {
         MENUS[menuId].show();
     }
+    if (menuObj.clearCenter) {
+        moveDateTimeClock();
+    }
     initMenuOptions(menuId);
 }
 
@@ -65,6 +70,9 @@ function hideMenu(menuId) {
     const menuObj = MENUS[menuId];
     if (menuObj.hide) {
         MENUS[menuId].hide();
+    }
+    if (menuObj.clearCenter) {
+        resetDateTimeClock();
     }
 }
 
