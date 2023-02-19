@@ -64,9 +64,27 @@
                 <!-- TIMER MENU -->
                 <div id="timerMenu" class="menu">
                     <div class="timer-container">
+                        <div class="timer-prompt">
+                            <label for="hour">
+                                <input autocomplete="off" placeholder="00" size="2" maxlength="2" name="hour" type="tel">h
+                            </label>
+                            <label for="minute">
+                                <input autocomplete="off" placeholder="00" size="2" maxlength="2" name="minute" type="tel">m
+                            </label>
+                            
+                            <label for="second">
+                                <input autocomplete="off" placeholder="00" size="2" maxlength="2" name="second" type="tel">s
+                            </label>
+                        </div>
                     </div>
                     <div class="menu-options">
                         <button class="menu-option prev-menu rainbow-border"></button>
+                        <button class="menu-option rainbow-border">
+                            <img class="menu-option-content invert" src="img/pause.png" alt="pause">
+                        </button>
+                        <button class="menu-option rainbow-border">
+                            <img class="menu-option-content invert" src="img/play.png" alt="play">
+                        </button>
                     </div>
                 </div>
             </div>
